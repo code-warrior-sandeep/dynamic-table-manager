@@ -1,10 +1,15 @@
-@import "tailwindcss";
+/* ✅ Tailwind core layers — must come first */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* ✅ Optional: custom CSS variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* ✅ Theme variables for your design system */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,6 +17,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* ✅ Dark mode handling */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,6 +25,7 @@
   }
 }
 
+/* ✅ Global styles */
 body {
   background: var(--background);
   color: var(--foreground);
