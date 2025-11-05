@@ -27,7 +27,7 @@ const DataTable = () => {
   const [editedRows, setEditedRows] = useState<{ [key: string]: any }>({});
   const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
 
-  // 🔍 Filter Rows
+  //  Filter Rows
   const filteredRows = useMemo(() => {
     if (!searchTerm) return rows;
     return rows.filter((row) =>
@@ -37,7 +37,7 @@ const DataTable = () => {
     );
   }, [rows, searchTerm, visibleColumns]);
 
-  // ↕ Sort Rows
+  //  Sort Rows
   const sortedRows = useMemo(() => {
     if (!sortBy) return filteredRows;
     return [...filteredRows].sort((a, b) => {
@@ -49,13 +49,13 @@ const DataTable = () => {
     });
   }, [filteredRows, sortBy, sortOrder]);
 
-  // 📄 Pagination
+  //  Pagination
   const paginatedRows = useMemo(() => {
     const start = page * rowsPerPage;
     return sortedRows.slice(start, start + rowsPerPage);
   }, [sortedRows, page]);
 
-  // ✏ Handle Edit
+  //  Handle Edit
   const handleEditChange = (id: string, key: string, value: string) => {
     setEditedRows((prev) => ({
       ...prev,
@@ -63,7 +63,7 @@ const DataTable = () => {
     }));
   };
 
-  // 💾 Save All
+  // Save All
   const handleSave = () => {
     const updated = rows.map((row) => ({
       ...row,
@@ -75,14 +75,14 @@ const DataTable = () => {
     setEditedRows({});
   };
 
-  // ❌ Cancel All
+  //  Cancel All
   const handleCancel = () => {
     setIsEditing(false);
     setRowEditingId(null);
     setEditedRows({});
   };
 
-  // 💾 Save Single Row
+  //  Save Single Row
   const handleRowSave = (id: string) => {
     const updated = rows.map((row) =>
       row.id === id ? { ...row, ...(editedRows[id] || {}) } : row
@@ -91,10 +91,10 @@ const DataTable = () => {
     setRowEditingId(null);
   };
 
-  // ❌ Cancel Single Row
+  //  Cancel Single Row
   const handleRowCancel = () => setRowEditingId(null);
 
-  // 🗑 Delete Row
+  //  Delete Row
   const confirmDelete = (id: string) => setDeleteTarget(id);
   const handleDelete = () => {
     if (!deleteTarget) return;
@@ -107,7 +107,7 @@ const DataTable = () => {
     <Paper className="p-6 md:p-8 rounded-2xl shadow-md bg-white mt-5">
       {/* Top Bar: Responsive Inline */}
       <div className="flex items-center justify-center gap-4 mb-6">
-  {/* 🔍 Search Field */}
+  {/*  Search Field */}
   <TextField
     label="Search..."
     variant="outlined"
@@ -117,7 +117,7 @@ const DataTable = () => {
     onChange={(e) => dispatch(setSearchTerm(e.target.value))}
   />
 
-  {/* ✏ Edit Controls */}
+  {/*  Edit Controls */}
   <Stack direction="row" spacing={3}>
     {!isEditing ? (
       <Button

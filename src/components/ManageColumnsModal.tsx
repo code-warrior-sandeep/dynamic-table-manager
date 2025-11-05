@@ -32,7 +32,7 @@ const ManageColumnsModal = () => {
   const [open, setOpen] = useState(false);
   const { register, handleSubmit, reset } = useForm<FormValues>();
 
-  // ✅ Add New Column
+  // Add New Column
   const handleAddColumn = (data: FormValues) => {
     const newCol = data.newColumn.trim();
 
@@ -75,7 +75,7 @@ const ManageColumnsModal = () => {
       <Dialog open={open} onClose={() => setOpen(false)} fullWidth>
         <DialogTitle>Manage Columns</DialogTitle>
         <DialogContent>
-          {/* ✅ Column list with show/hide + delete */}
+          {/*  Column list with show/hide + delete */}
           <FormGroup>
             {columns.map((col) => (
               <Stack
@@ -104,7 +104,7 @@ const ManageColumnsModal = () => {
             ))}
           </FormGroup>
 
-          {/* ➕ Add new column */}
+          {/*  Add new column */}
           <form onSubmit={handleSubmit(handleAddColumn)}>
             <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
               <TextField

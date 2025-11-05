@@ -9,7 +9,7 @@ export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 export default function ThemeProviderWrapper({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<'light' | 'dark'>('light');
 
-  // 🧠 Load saved mode from localStorage
+  //  Load saved mode from localStorage
   useEffect(() => {
     const savedMode = localStorage.getItem('themeMode') as 'light' | 'dark' | null;
     if (savedMode) setMode(savedMode);
@@ -28,7 +28,7 @@ export default function ThemeProviderWrapper({ children }: { children: React.Rea
     []
   );
 
-  // 🎨 Define MUI themes
+  //  Define MUI themes
   const theme = useMemo(
     () =>
       createTheme({
@@ -51,7 +51,7 @@ export default function ThemeProviderWrapper({ children }: { children: React.Rea
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {/* 🌗 Theme Toggle Button */}
+        {/*  Theme Toggle Button */}
         <div style={{ position: 'fixed', top: 16, right: 16, zIndex: 9999 }}>
           <IconButton
             onClick={colorMode.toggleColorMode}

@@ -19,7 +19,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persistedReducer,
 
-  // ✅ Disable serializableCheck for redux-persist actions
+  //  Disable serializableCheck for redux-persist actions
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

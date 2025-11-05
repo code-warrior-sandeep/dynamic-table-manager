@@ -31,13 +31,13 @@ const tableSlice = createSlice({
   name: 'table',
   initialState,
   reducers: {
-    // ✅ Update all rows
+    // Update all rows
     setRows: (state, action: PayloadAction<TableRow[]>) => {
       state.rows = action.payload || [];
     },
     
 
-    // ✅ Add or remove column visibility
+    //  Add or remove column visibility
     toggleColumn: (state, action: PayloadAction<string>) => {
       const col = action.payload;
       if (state.visibleColumns.includes(col)) {
@@ -47,17 +47,17 @@ const tableSlice = createSlice({
       }
     },
 
-    // ✅ Update full column list (used when adding new column)
+    // Update full column list (used when adding new column)
     setColumns: (state, action: PayloadAction<string[]>) => {
       state.columns = action.payload;
     },
 
-    // ✅ Search
+    // Search
     setSearchTerm: (state, action: PayloadAction<string>) => {
       state.searchTerm = action.payload;
     },
 
-    // ✅ Sorting
+    //  Sorting
     setSort: (state, action: PayloadAction<{ key: string }>) => {
       if (state.sortBy === action.payload.key) {
         state.sortOrder = state.sortOrder === 'asc' ? 'desc' : 'asc';

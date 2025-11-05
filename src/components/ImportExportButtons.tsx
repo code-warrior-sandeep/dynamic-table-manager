@@ -12,7 +12,7 @@ const ImportExportButtons = () => {
   const dispatch = useDispatch();
   const { rows, visibleColumns } = useSelector((state: RootState) => state.table);
 
-  // ✅ Handle CSV Import
+  //  Handle CSV Import
   const handleImport = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -38,7 +38,7 @@ const ImportExportButtons = () => {
     });
   };
 
-  // ✅ Handle CSV Export
+  //  Handle CSV Export
   const handleExport = () => {
     if (rows.length === 0) {
       alert('No data to export!');
@@ -59,7 +59,7 @@ const ImportExportButtons = () => {
 
   return (
     <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
-      {/* 🔽 Import Button */}
+      {/*  Import Button */}
       <input
         type="file"
         accept=".csv"
@@ -71,7 +71,7 @@ const ImportExportButtons = () => {
         Import CSV
       </Button>
 
-      {/* 🔼 Export Button */}
+      {/*  Export Button */}
       <Button variant="outlined" color="secondary" onClick={handleExport}>
         Export CSV
       </Button>
