@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+📊 Dynamic Table Manager
 
-## Getting Started
+A modern, fully dynamic data table manager built with Next.js + TypeScript + Redux Toolkit + Tailwind CSS.
+It supports import/export CSV, add/delete columns, inline editing, sorting, search, and persistent data storage using Redux Persist.
 
-First, run the development server:
+🚀 Features
 
-```bash
+✅ Dynamic Columns — Add or delete columns anytime using a modal.
+✅ Inline Editing — Double-click cells to edit values directly.
+✅ CSV Import & Export — Upload CSV files or download your table data.
+✅ Persistent State — Redux Persist keeps your data after refresh.
+✅ Sorting & Search — Sort by any column or filter by keyword.
+✅ Responsive UI — Styled using Tailwind CSS and Material UI.
+✅ TypeScript Safety — Strong typing for maintainable, scalable code.
+
+🛠️ Tech Stack
+
+⚡ Next.js 14 (App Router)
+
+🧠 TypeScript
+
+🧩 Redux Toolkit + Redux Persist
+
+🎨 Tailwind CSS
+
+🧰 MUI (Material UI)
+
+📂 PapaParse & FileSaver.js (for CSV import/export)
+
+dynamic-table-manager/
+│
+├── src/
+│   ├── app/
+│   │   ├── page.tsx               # Main page (loads table)
+│   │   ├── layout.tsx             # App layout with providers
+│   │   └── globals.css            # Global Tailwind styles
+│   │
+│   ├── components/
+│   │   ├── DataTable.tsx          # Table UI and logic
+│   │   ├── ManageColumnsModal.tsx # Add/Delete columns
+│   │   ├── ImportExportButtons.tsx# CSV import/export
+│   │
+│   ├── store/
+│   │   ├── tableSlice.ts          # Redux logic for table state
+│   │   └── index.ts               # Store configuration
+│   │
+│   └── utils/
+│       └── CsvUtils.ts            # CSV import/export helpers
+│
+├── package.json
+├── tailwind.config.js
+├── postcss.config.js
+└── README.md
+
+
+git clone https://github.com/code-warrior-sandeep/dynamic-table-manager.git
+cd dynamic-table-manager
+
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🧠 Usage Guide
+➕ Add a New Column
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Click “Manage Columns” → Add New Column, type a name (e.g. Department), and press Add.
 
-## Learn More
+🗑️ Delete a Column
 
-To learn more about Next.js, take a look at the following resources:
+Click the red 🗑 Delete icon next to a column name in Manage Columns modal.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+✏️ Edit a Cell
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Double-click any cell → change text → press Enter or click away to save.
 
-## Deploy on Vercel
+📥 Import CSV
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Click “Import CSV” → Choose File.
+Ensure your CSV has headers matching existing columns.
